@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DEAR STORE | Telefon Aksesuarları & Bileklik</title>
+  <title>DEAR STORE | Telefon Aksesuarları</title>
   <style>
     :root {
       --ana: #111827;
@@ -17,9 +17,7 @@
       --sinir: #e5e7eb;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -190,7 +188,6 @@
       justify-content: center;
       position: relative;
       padding: 12px;
-      transition: background 0.2s ease;
     }
 
     .rozet {
@@ -226,5 +223,461 @@
     }
 
     .kart-fiyat {
-      margin-
-    
+      margin-top: auto;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--turuncu);
+    }
+
+    .incele-yazi {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ana);
+      background: #f3f4f6;
+      text-align: center;
+      padding: 6px;
+      border-radius: 6px;
+    }
+
+    .modal-arka {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-arka.acik { display: flex; }
+
+    .modal {
+      background: #fff;
+      width: 100%;
+      max-width: 450px;
+      border-radius: 14px;
+      padding: 18px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-ust {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .kapat-btn {
+      background: #f3f4f6;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .detay-gorsel {
+      background: #f9fafb;
+      border: 1px solid var(--sinir);
+      border-radius: 10px;
+      height: 175px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .detay-fiyat {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--turuncu);
+      margin: 8px 0;
+    }
+
+    .secenekler {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0 16px;
+    }
+
+    .secenek {
+      border: 1px solid var(--sinir);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .secenek.secili {
+      border-color: var(--turuncu);
+      background: #fff7ed;
+      color: var(--turuncu-koyu);
+      font-weight: 700;
+    }
+
+    .renk-nokta {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      display: inline-block;
+    }
+
+    .ana-btn {
+      width: 100%;
+      background: var(--turuncu);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .ana-btn:hover { background: var(--turuncu-koyu); }
+
+    .sepet-satir {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--sinir);
+      font-size: 14px;
+      gap: 8px;
+    }
+
+    .form-alan {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-alan input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--sinir);
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .onay-kutu {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: var(--yesil);
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .siparis-kart {
+      border: 1px solid var(--sinir);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #fafafa;
+      font-size: 13px;
+    }
+
+    footer {
+      background: var(--ana);
+      color: #9ca3af;
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ust-bant">DEAR STORE • Hızlı Teslimat &amp; Güvenli Alışveriş</div>
+
+  <header>
+    <div class="header-ic">
+      <a class="logo" href="#">
+        <img src="./dear-store-logo.png" alt="DEAR STORE" onerror="this.style.display='none'">
+        <span>DEAR STORE</span>
+      </a>
+      <div class="sag-butonlar">
+        <button class="ikincil-btn" onclick="siparislerAc()">
+          Siparişlerim (<span id="siparis-sayi">0</span>)
+        </button>
+        <button class="sepet-btn" onclick="sepetAc()">
+          Sepetim (<span id="sepet-sayi">0</span>)
+        </button>
+      </div>
+    </div>
+    <div class="kategoriler">
+      <div class="kategoriler-ic">
+        <button class="kat-btn aktif" onclick="filtrele('hepsi', this)">Tümü</button>
+        <button class="kat-btn" onclick="filtrele('kilif', this)">Telefon Kılıfları</button>
+        <button class="kat-btn" onclick="filtrele('bileklik', this)">Bileklikler</button>
+        <button class="kat-btn" onclick="filtrele('sarj', this)">Şarj Aletleri</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="banner">
+    <div class="banner-kutu">
+      <h1>Apple 17 Pro Max Kılıf &amp; Şarj Aleti</h1>
+      <p>Ürüne gir, rengini seç (görsel rengi değişir), sepete ekle ve siparişini onayla.</p>
+    </div>
+  </section>
+
+  <main class="konteyner">
+    <div class="izgara" id="urun-listesi"></div>
+  </main>
+
+  <div class="modal-arka" id="detay-modal" onclick="disTikla(event, 'detay-modal')">
+    <div class="modal">
+      <div class="modal-ust">
+        <strong id="m-kategori">Ürün Detayı</strong>
+        <button class="kapat-btn" onclick="modalKapat('detay-modal')">×</button>
+      </div>
+      <div class="detay-gorsel" id="m-gorsel"></div>
+      <h2 id="m-baslik" style="margin:0; font-size:19px;"></h2>
+      <div class="detay-fiyat" id="m-fiyat"></div>
+      <p id="m-aciklama" style="color:#4b5563; font-size:14px; line-height:1.5;"></p>
+      <div style="font-size:13px; font-weight:700;">Renk Seçimi:</div>
+      <div class="secenekler" id="m-secenekler"></div>
+      <button class="ana-btn" onclick="sepeteEkle()">Sepete Ekle</button>
+    </div>
+  </div>
+
+  <div class="modal-arka" id="sepet-modal" onclick="disTikla(event, 'sepet-modal')">
+    <div class="modal">
+      <div class="modal-ust">
+        <strong>Sepetim</strong>
+        <button class="kapat-btn" onclick="modalKapat('sepet-modal')">×</button>
+      </div>
+      <div id="sepet-icerik"></div>
+      <div id="sepet-alt-alan">
+        <div style="margin:14px 0 8px; font-size:16px; font-weight:800; display:flex; justify-content:space-between;">
+          <span>Toplam Tutar:</span>
+          <span id="sepet-toplam">0 TL</span>
+        </div>
+        <div class="form-alan">
+          <input type="text" id="musteri-ad" placeholder="Ad Soyad">
+          <input type="text" id="musteri-tel" placeholder="Telefon Numarası">
+          <input type="text" id="musteri-adres" placeholder="Teslimat Adresi">
+        </div>
+        <button class="ana-btn" style="margin-top:12px;" onclick="siparisOlustur()">Siparişi Onayla</button>
+      </div>
+      <div id="siparis-sonuc" style="margin-top:12px;"></div>
+    </div>
+  </div>
+
+  <div class="modal-arka" id="siparisler-modal" onclick="disTikla(event, 'siparisler-modal')">
+    <div class="modal">
+      <div class="modal-ust">
+        <strong>Oluşturulan Siparişler</strong>
+        <button class="kapat-btn" onclick="modalKapat('siparisler-modal')">×</button>
+      </div>
+      <div id="siparisler-listesi"></div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 DEAR STORE • Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    const renkler = {
+      "Siyah": { dolgu: "#1f2937", zemin: "#e5e7eb", cizgi: "#111827" },
+      "Mavi": { dolgu: "#2563eb", zemin: "#dbeafe", cizgi: "#1d4ed8" },
+      "Şeffaf": { dolgu: "#ffffff", zemin: "#f3f4f6", cizgi: "#374151" },
+      "Gri": { dolgu: "#6b7280", zemin: "#e5e7eb", cizgi: "#374151" },
+      "Gümüş": { dolgu: "#cbd5e1", zemin: "#f1f5f9", cizgi: "#334155" },
+      "Altın": { dolgu: "#eab308", zemin: "#fef9c3", cizgi: "#854d0e" },
+      "Beyaz": { dolgu: "#ffffff", zemin: "#f8fafc", cizgi: "#1e293b" }
+    };
+
+    function gorselUret(tip, renkAdi, boyut) {
+      const r = renkler[renkAdi] || renkler["Siyah"];
+      if (tip === "kilif") {
+        return '<svg width="' + boyut + '" height="' + boyut + '" viewBox="0 0 80 80" fill="none">' +
+          '<rect x="20" y="8" width="40" height="64" rx="10" fill="' + r.dolgu + '" stroke="' + r.cizgi + '" stroke-width="3"/>' +
+          '<rect x="25" y="14" width="15" height="17" rx="5" fill="' + r.zemin + '" stroke="' + r.cizgi + '" stroke-width="2.5"/>' +
+          '<circle cx="30" cy="19.5" r="2.3" fill="' + r.cizgi + '"/>' +
+          '<circle cx="35.5" cy="25" r="2.3" fill="' + r.cizgi + '"/>' +
+          '<circle cx="30" cy="26.5" r="1.5" fill="' + r.cizgi + '"/>' +
+          '</svg>';
+      }
+      if (tip === "bileklik") {
+        return '<svg width="' + boyut + '" height="' + boyut + '" viewBox="0 0 80 80" fill="none">' +
+          '<circle cx="40" cy="40" r="22" stroke="' + r.dolgu + '" stroke-width="8"/>' +
+          '<circle cx="40" cy="40" r="26" stroke="' + r.cizgi + '" stroke-width="2"/>' +
+          '<circle cx="40" cy="40" r="18" stroke="' + r.cizgi + '" stroke-width="2"/>' +
+          '<rect x="35" y="11" width="10" height="7" rx="2" fill="' + r.cizgi + '"/>' +
+          '</svg>';
+      }
+      return '<svg width="' + boyut + '" height="' + boyut + '" viewBox="0 0 80 80" fill="none">' +
+        '<rect x="24" y="20" width="32" height="34" rx="7" fill="' + r.dolgu + '" stroke="' + r.cizgi + '" stroke-width="3"/>' +
+        '<line x1="32" y1="10" x2="32" y2="20" stroke="' + r.cizgi + '" stroke-width="3.5" stroke-linecap="round"/>' +
+        '<line x1="48" y1="10" x2="48" y2="20" stroke="' + r.cizgi + '" stroke-width="3.5" stroke-linecap="round"/>' +
+        '<path d="M42 29L35 39H41L38 47L46 36H40L42 29Z" fill="' + r.cizgi + '"/>' +
+        '<path d="M40 54V68" stroke="' + r.cizgi + '" stroke-width="3" stroke-linecap="round"/>' +
+        '</svg>';
+    }
+
+    const urunler = [
+      {
+        id: 1,
+        kategori: "kilif",
+        tip: "kilif",
+        etiket: "APPLE 17 PRO MAX KILIF",
+        ad: "Apple 17 Pro Max Kılıf",
+        kisa: "Normal günlük koruma kılıfı • 300 TL",
+        fiyat: 300,
+        aciklama: "Apple 17 Pro Max ile uyumlu normal kılıf. Renk seçtiğinde görsel rengi değişir.",
+        secenekler: ["Siyah", "Mavi", "Şeffaf", "Gri"]
+      },
+      {
+        id: 2,
+        kategori: "bileklik",
+        tip: "bileklik",
+        etiket: "BİLEKLİK",
+        ad: "Stil Bileklik",
+        kisa: "Günlük kullanım bileklik modeli",
+        fiyat: 149,
+        aciklama: "Günlük kullanım için şık bileklik modeli.",
+        secenekler: ["Siyah", "Mavi", "Gümüş", "Altın"]
+      },
+      {
+        id: 3,
+        kategori: "sarj",
+        tip: "sarj",
+        etiket: "APPLE 17 PRO MAX ŞARJ ALETİ",
+        ad: "Apple 17 Pro Max Şarj Aleti",
+        kisa: "Şarj adaptörü ve kablosu",
+        fiyat: 249,
+        aciklama: "Apple 17 Pro Max şarj aleti. Renk seçtiğinde görsel rengi değişir.",
+        secenekler: ["Beyaz", "Siyah", "Mavi"]
+      }
+    ];
+
+    let aktifUrun = null;
+    let seciliOpsiyon = "";
+    let sepet = [];
+    let siparisler = [];
+
+    function urunleriCiz(liste) {
+      const alan = document.getElementById("urun-listesi");
+      alan.innerHTML = liste.map(function(u) {
+        const ilkRenk = u.secenekler[0];
+        const zemin = (renkler[ilkRenk] && renkler[ilkRenk].zemin) || "#f3f4f6";
+        return '<div class="kart" onclick="urunAc(' + u.id + ')">' +
+          '<div class="kart-gorsel" style="background:' + zemin + ';">' +
+          '<span class="rozet">' + u.etiket + '</span>' +
+          gorselUret(u.tip, ilkRenk, 78) +
+          '</div>' +
+          '<div class="kart-icerik">' +
+          '<h3 class="kart-baslik">' + u.ad + '</h3>' +
+          '<p class="kart-alt">' + u.kisa + '</p>' +
+          '<div class="kart-fiyat">' + u.fiyat + ' TL</div>' +
+          '<div class="incele-yazi">Ürüne Gir →</div>' +
+          '</div>' +
+          '</div>';
+      }).join("");
+    }
+
+    function filtrele(kat, btn) {
+      document.querySelectorAll(".kat-btn").forEach(function(b) { b.classList.remove("aktif"); });
+      btn.classList.add("aktif");
+      if (kat === "hepsi") {
+        urunleriCiz(urunler);
+      } else {
+        urunleriCiz(urunler.filter(function(u) { return u.kategori === kat; }));
+      }
+    }
+
+    function modalGorselGuncelle() {
+      if (!aktifUrun) return;
+      const r = renkler[seciliOpsiyon] || renkler["Siyah"];
+      const gorselAlan = document.getElementById("m-gorsel");
+      gorselAlan.style.background = r.zemin;
+      gorselAlan.innerHTML = gorselUret(aktifUrun.tip, seciliOpsiyon, 96);
+    }
+
+    function urunAc(id) {
+      aktifUrun = urunler.find(function(u) { return u.id === id; });
+      seciliOpsiyon = aktifUrun.secenekler[0];
+      document.getElementById("m-kategori").innerText = aktifUrun.etiket;
+      document.getElementById("m-baslik").innerText = aktifUrun.ad;
+      document.getElementById("m-fiyat").innerText = aktifUrun.fiyat + " TL";
+      document.getElementById("m-aciklama").innerText = aktifUrun.aciklama;
+
+      const secAlan = document.getElementById("m-secenekler");
+      secAlan.innerHTML = aktifUrun.secenekler.map(function(s, i) {
+        const nokta = (renkler[s] && renkler[s].dolgu) || "#111827";
+        return '<button class="secenek ' + (i === 0 ? "secili" : "") + '" onclick="opsiyonSec(\'' + s + '\', this)">' +
+          '<span class="renk-nokta" style="background:' + nokta + ';"></span>' +
+          '<span>' + s + '</span>' +
+          '</button>';
+      }).join("");
+
+      modalGorselGuncelle();
+      document.getElementById("detay-modal").classList.add("acik");
+    }
+
+    function opsiyonSec(deger, el) {
+      seciliOpsiyon = deger;
+      document.querySelectorAll(".secenek").forEach(function(s) { s.classList.remove("secili"); });
+      el.classList.add("secili");
+      modalGorselGuncelle();
+    }
+
+    function sepeteEkle() {
+      sepet.push({ ad: aktifUrun.ad, fiyat: aktifUrun.fiyat, secenek: seciliOpsiyon });
+      document.getElementById("sepet-sayi").innerText = sepet.length;
+      document.getElementById("siparis-sonuc").innerHTML = "";
+      modalKapat("detay-modal");
+      sepetAc();
+    }
+
+    function sepetAc() {
+      const icerik = document.getElementById("sepet-icerik");
+      const altAlan = document.getElementById("sepet-alt-alan");
+
+      if (sepet.length === 0) {
+        icerik.innerHTML = "<p style='color:#6b7280; font-size:14px;'>Sepetiniz şu an boş.</p>";
+        altAlan.style.display = "none";
+      } else {
+        altAlan.style.display = "block";
+        icerik.innerHTML = sepet.map(function(item, idx) {
+          return '<div class="sepet-satir">' +
+            '<div><strong>' + item.ad + '</strong><br><small style="color:#6b7280;">Renk: ' + item.secenek + '</small></div>' +
+            '<div><strong>' + item.fiyat + ' TL</strong> <button onclick="sepetSil(' + idx + ')" style="margin-left:6px; border:none; background:#fee2e2; color:#b91c1c; border-radius:4px; cursor:pointer; padding:3px 6px;">Sil</button></div>' +
+            '</div>';
+        }).join("");
+        const toplam = sepet.reduce(function(t, u) { return t + u.fiyat; }, 0);
+        document.getElementById("sepet-toplam").innerText = toplam + " TL";
+      }
+
+      document.getElementById("sepet-modal").classList.add("acik");
+    }
+
+    function sepetSil(idx) {
+      sepet.splice(idx, 1);
+      document.getElementById("sepet-sayi").innerText = sepet.length;
+      sepetAc();
+    }
+
+    function siparisOlustur() {
+      if (sepet.length === 0) return;
+      const ad = document.getElementById("musteri-ad").value.trim() || "Müşteri";
+      const tel = document.getElementById("musteri-tel").value.trim() || "Belirtilmedi";
+      const adres = document.getElementById("musteri-adres").value.trim() || "Belirtilmedi";
+      const toplam = sepet.reduce(function(t, u) { return t + u.fiyat; }, 0);
+      const 
