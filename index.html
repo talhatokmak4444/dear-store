@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1081cc">
-  <meta name="description" content="DEAR STORE - Telefon aksesuarlarını ve tarzını yansıtan mağaza">
-  <title>DEĞERLİ MAĞAZA - Farklılıklarınız, tarzınız</title>
+  <title>DEAR STORE | Telefon Aksesuarları & Bileklik</title>
   <style>
     :root {
-      --murekkep: #100b1c;
-      --mor: #871cff;
-      --pembe: #ed59d0;
-      --kagit: #faf8ff;
-      --sessiz: #766f83;
-      --satir: #ece7f3;
+      --ana: #111827;
+      --turuncu: #f27a1a;
+      --turuncu-koyu: #d9650b;
+      --arka: #f5f5f7;
+      --kart: #ffffff;
+      --yazi: #1f2937;
+      --gri: #6b7280;
+      --sinir: #e5e7eb;
     }
 
     * {
@@ -22,228 +22,413 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--kagit);
-      color: var(--murekkep);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--arka);
+      color: var(--yazi);
     }
 
-    .ust {
-      background: var(--murekkep);
-      color: #ffffff;
+    .ust-bant {
+      background: var(--ana);
+      color: #fff;
       text-align: center;
-      padding: 8px 12px;
       font-size: 12px;
-      letter-spacing: 0.5px;
+      padding: 7px 12px;
     }
 
-    .nav {
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--sinir);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-ic {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 16px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 14px 20px;
-      background: #ffffff;
-      border-bottom: 1px solid var(--satir);
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    .marka {
-      text-decoration: none;
-      color: var(--murekkep);
-      font-weight: bold;
-      font-size: 18px;
-      display: inline-flex;
+    .logo {
+      display: flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
+      color: var(--ana);
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: -0.3px;
     }
 
-    .marka img {
-      height: 32px;
+    .logo img {
+      height: 34px;
       width: auto;
       border-radius: 6px;
     }
 
-    .baglantilar a {
-      text-decoration: none;
-      color: var(--murekkep);
-      margin-left: 14px;
+    .sepet-btn {
+      background: var(--turuncu);
+      color: #fff;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-weight: 700;
       font-size: 14px;
-      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .kahraman {
-      padding: 36px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #f3e8ff, #fce7f3);
+    .kategoriler {
+      background: #fff;
+      border-bottom: 1px solid var(--sinir);
+      overflow-x: auto;
+      white-space: nowrap;
     }
 
-    .kahraman h1 {
-      margin: 0 0 10px;
-      font-size: 28px;
-    }
-
-    .kahraman p {
-      margin: 0;
-      color: var(--sessiz);
-    }
-
-    .sayfa {
-      padding: 28px 20px;
-      max-width: 1000px;
+    .kategoriler-ic {
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      gap: 8px;
     }
 
-    .bolum-basligi h2 {
+    .kat-btn {
+      border: 1px solid var(--sinir);
+      background: #fff;
+      color: var(--yazi);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .kat-btn.aktif {
+      background: var(--turuncu);
+      color: #fff;
+      border-color: var(--turuncu);
+    }
+
+    .banner {
+      max-width: 1100px;
+      margin: 16px auto 0;
+      padding: 0 16px;
+    }
+
+    .banner-kutu {
+      background: linear-gradient(120deg, #111827, #1f2937);
+      color: #fff;
+      border-radius: 14px;
+      padding: 24px 20px;
+    }
+
+    .banner-kutu h1 {
       margin: 0 0 6px;
       font-size: 22px;
     }
 
-    .bolum-basligi p {
-      margin: 0 0 20px;
-      color: var(--sessiz);
+    .banner-kutu p {
+      margin: 0;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    .konteyner {
+      max-width: 1100px;
+      margin: 18px auto 40px;
+      padding: 0 16px;
     }
 
     .izgara {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      gap: 14px;
     }
 
-    .urun {
-      background: #ffffff;
-      border: 1px solid var(--satir);
-      border-radius: 14px;
+    .kart {
+      background: var(--kart);
+      border: 1px solid var(--sinir);
+      border-radius: 12px;
       overflow: hidden;
-      padding: 14px;
-    }
-
-    .gorsel {
-      height: 155px;
-      border-radius: 10px;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .kart:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .kart-gorsel {
+      height: 150px;
+      background: #f3f4f6;
+      display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       padding: 12px;
+    }
+
+    .kart-gorsel img {
+      max-width: 100%;
+      max-height: 125px;
+      object-fit: contain;
+    }
+
+    .rozet {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #111827;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 5px;
+    }
+
+    .kart-icerik {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .kart-baslik {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 4px;
+      color: var(--ana);
+    }
+
+    .kart-alt {
+      font-size: 12px;
+      color: var(--gri);
+      margin: 0 0 10px;
+    }
+
+    .kart-fiyat {
+      margin-top: auto;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--turuncu);
+    }
+
+    .incele-yazi {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ana);
+      background: #f3f4f6;
+      text-align: center;
+      padding: 6px;
+      border-radius: 6px;
+    }
+
+    /* Ürün Detay ve Sepet Penceresi */
+    .modal-arka {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-arka.acik {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 14px;
+      padding: 18px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-ust {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 12px;
     }
 
-    .etiket {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--murekkep);
-      font-size: 11px;
-      font-weight: bold;
-      padding: 4px 8px;
-      border-radius: 999px;
+    .kapat-btn {
+      background: #f3f4f6;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
     }
 
-    .ikon-kutu {
-      width: 68px;
-      height: 68px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.85);
+    .detay-gorsel {
+      background: #f9fafb;
+      border: 1px solid var(--sinir);
+      border-radius: 10px;
+      height: 190px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 16px rgba(16, 11, 28, 0.08);
+      margin-bottom: 14px;
     }
 
-    .ikon-kutu svg {
-      width: 38px;
-      height: 38px;
-      stroke: var(--murekkep);
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .detay-fiyat {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--turuncu);
+      margin: 8px 0;
     }
 
-    .urun h3 {
-      margin: 0 0 6px;
-      font-size: 17px;
+    .secenekler {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 10px 0 16px;
     }
 
-    .urun p {
-      margin: 0;
-      color: var(--sessiz);
-      font-size: 14px;
+    .secenek {
+      border: 1px solid var(--sinir);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      background: #fff;
     }
 
-    .bildirim {
-      max-width: 1000px;
-      margin: 0 auto 24px;
-      padding: 16px 20px;
-      background: #ffffff;
-      border-left: 4px solid var(--mor);
+    .secenek.secili {
+      border-color: var(--turuncu);
+      background: #fff7ed;
+      color: var(--turuncu-koyu);
+      font-weight: 700;
+    }
+
+    .ana-btn {
+      width: 100%;
+      background: var(--turuncu);
+      color: #fff;
+      border: none;
+      padding: 12px;
       border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .sepet-satir {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--sinir);
       font-size: 14px;
     }
 
-    .altbilgi {
-      background: var(--murekkep);
-      color: #ffffff;
-      padding: 24px 20px;
+    footer {
+      background: var(--ana);
+      color: #9ca3af;
       text-align: center;
+      padding: 20px;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
-  <div class="ust">DEĞERLİ MAĞAZA - TARZINI TELEFONUNA YANSIT</div>
 
-  <header class="nav">
-    <a class="marka" href="#anasayfa">
-      <img src="./dear-store-logo.png" alt="DEAR STORE Logo" onerror="this.style.display='none'">
-      <span>DEĞERLİ MAĞAZA</span>
-    </a>
-    <nav class="baglantilar">
-      <a href="#anasayfa">Ana Sayfa</a>
-      <a href="#urunler">Ürünler</a>
-      <a href="#hakkimizda">Hakkımızda</a>
-    </nav>
+  <div class="ust-bant">DEAR STORE • Hızlı Kargo & Güvenli Alışveriş</div>
+
+  <header>
+    <div class="header-ic">
+      <a class="logo" href="#">
+        <img src="./dear-store-logo.png" alt="DEAR STORE" onerror="this.style.display='none'">
+        <span>DEAR STORE</span>
+      </a>
+      <button class="sepet-btn" onclick="sepetAc()">
+        Sepetim (<span id="sepet-sayi">0</span>)
+      </button>
+    </div>
+    <div class="kategoriler">
+      <div class="kategoriler-ic">
+        <button class="kat-btn aktif" onclick="filtrele('hepsi', this)">Tümü</button>
+        <button class="kat-btn" onclick="filtrele('kilif', this)">Telefon Kılıfları</button>
+        <button class="kat-btn" onclick="filtrele('bileklik', this)">Bileklikler</button>
+        <button class="kat-btn" onclick="filtrele('aksesuar', this)">Aksesuar & Şarj</button>
+      </div>
+    </div>
   </header>
 
-  <main id="anasayfa">
-    <section class="kahraman">
-      <h1>Farklılıklarınız, tarzınız</h1>
-      <p>Özenle seçilmiş telefon aksesuarları ve günlük kullanım ürünleri.</p>
-    </section>
+  <section class="banner">
+    <div class="banner-kutu">
+      <h1>Telefonunu ve Tarzını Tamamla</h1>
+      <p>Ürünün üzerine tıklayarak detayları inceleyebilir ve sepete ekleyebilirsin.</p>
+    </div>
+  </section>
 
-    <section class="sayfa" id="urunler">
-      <div class="bolum-basligi">
-        <h2>Öne çıkan ürünler</h2>
-        <p>İlk koleksiyonumuzdan örnek parçalar.</p>
+  <main class="konteyner">
+    <div class="izgara" id="urun-listesi"></div>
+  </main>
+
+  <!-- Ürün Detay Penceresi -->
+  <div class="modal-arka" id="detay-modal" onclick="disTikla(event, 'detay-modal')">
+    <div class="modal">
+      <div class="modal-ust">
+        <strong id="m-kategori">Ürün Detayı</strong>
+        <button class="kapat-btn" onclick="modalKapat('detay-modal')">×</button>
       </div>
+      <div class="detay-gorsel" id="m-gorsel"></div>
+      <h2 id="m-baslik" style="margin:0; font-size:19px;"></h2>
+      <div class="detay-fiyat" id="m-fiyat"></div>
+      <p id="m-aciklama" style="color:#4b5563; font-size:14px; line-height:1.5;"></p>
+      <div style="font-size:13px; font-weight:700;">Seçenek:</div>
+      <div class="secenekler" id="m-secenekler"></div>
+      <button class="ana-btn" onclick="sepeteEkle()">Sepete Ekle</button>
+    </div>
+  </div>
 
-      <div class="izgara">
-        <article class="urun">
-          <div class="gorsel" style="background: linear-gradient(145deg, #ffe7f5, #f3e8ff);">
-            <span class="etiket">TELEFON KILIFI</span>
-            <div class="ikon-kutu">
-              <svg viewBox="0 0 24 24">
-                <rect x="6" y="2" width="12" height="20" rx="2.5"></rect>
-                <line x1="10" y1="5.5" x2="14" y2="5.5"></line>
-                <circle cx="12" cy="18.5" r="0.8"></circle>
-              </svg>
-            </div>
-          </div>
-          <h3>Şık Telefon Kılıfı</h3>
-          <p>Günlük koruma ve modern görünüm sunan telefon kılıfı modeli.</p>
-        </article>
+  <!-- Sepet Penceresi -->
+  <div class="modal-arka" id="sepet-modal" onclick="disTikla(event, 'sepet-modal')">
+    <div class="modal">
+      <div class="modal-ust">
+        <strong>Sepetim</strong>
+        <button class="kapat-btn" onclick="modalKapat('sepet-modal')">×</button>
+      </div>
+      <div id="sepet-icerik"></div>
+      <div style="margin:14px 0; font-size:16px; font-weight:800; display:flex; justify-content:space-between;">
+        <span>Toplam:</span>
+        <span id="sepet-toplam">0 TL</span>
+      </div>
+      <button class="ana-btn" onclick="siparisTamamla()">Siparişi Onayla</button>
+    </div>
+  </div>
 
-        <article class="urun">
-          <div class="gorsel" style="background: linear-gradient(145deg, #e0f2fe, #ede9fe);">
-            <span class="etiket">BİLEKLİK</span>
-            <div class="ikon-kutu">
-              <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="7"></circle>
-                <circle cx="12" cy="12" r="3.5"></circle>
-                <line x1="12" y1="2" x2="12" y2="5"></line>
-                <line x1="12" y1="19" x2="12" y2="22"></line>
-              </svg>
-            </div>
-          </div>
-          <h3>Stil Bileklik</h3>
-          <p>Günlük kombine uyum
-            
+  <footer>
+    © 2026 DEAR STORE • Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    const urunler = [
+      {
+        id: 1,
+        kategori: "kilif",
+        etiket: "KILIF",
+        ad: "Lansman Silikon Telefon Kılıfı",
+        kisa: "İçi kadife dokulu darbe emici kılıf",
+        fiyat: 199,
+        aciklama: "Kamera korumalı, kadife iç yüzeyli ve elde kaymayan özel dokulu telefon kılıfı. Tüm popüler modellerle uyumludur.",
+
+    
