@@ -1,26 +1,247 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#100b1c"><meta name="description" content="DEAR STORE — telefon aksesuarları ve tarzını yansıtan detaylar.">
-<title>DEAR STORE — Your phone, your style</title>
-<style>
-:root{--ink:#100b1c;--purple:#871cff;--pink:#ed36d0;--paper:#faf8ff;--muted:#766f83;--line:#ece7f3}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink)}a{color:inherit;text-decoration:none}.top{background:#100b1c;color:#fff;text-align:center;padding:9px 14px;font-size:12px;letter-spacing:.12em}.nav{max-width:1160px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:950;letter-spacing:.08em;font-size:22px}.brand span{color:#a94bff}.links{display:flex;gap:24px;font-size:14px;color:#51495d}.cart{border:1px solid #ded5e9;border-radius:999px;padding:10px 15px;font-size:13px;font-weight:750;background:#fff}.hero{background:radial-gradient(circle at 80% 20%,#55208b 0,transparent 32%),linear-gradient(120deg,#100b1c,#24103d 65%,#48127a);color:#fff;overflow:hidden}.hero-inner{max-width:1160px;margin:auto;min-height:440px;padding:52px 22px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px}.eyebrow{color:#d8b6ff;font-size:12px;font-weight:800;letter-spacing:.2em}.hero h1{font-size:clamp(42px,6vw,72px);line-height:.98;letter-spacing:-.055em;margin:16px 0}.hero h1 em{font-style:normal;color:#d18cff}.hero p{max-width:470px;color:#ddd2ed;line-height:1.7}.cta{display:inline-block;margin-top:18px;background:linear-gradient(90deg,#8d24ff,#e13acb);color:#fff;padding:14px 22px;border-radius:999px;font-weight:800;box-shadow:0 10px 30px #0004}.crest{width:min(100%,340px);justify-self:center;filter:drop-shadow(0 18px 35px #0008)}.section{max-width:1160px;margin:0 auto;padding:58px 22px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}.section h2{font-size:30px;letter-spacing:-.04em;margin:0}.section-head p{margin:7px 0 0;color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.product{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 14px 34px #24103d12}.visual{aspect-ratio:1/1;background:linear-gradient(145deg,#f2e7ff,#fceafa);display:grid;place-items:center;position:relative}.visual b{font-size:64px;filter:drop-shadow(0 8px 8px #0002)}.tag{position:absolute;top:12px;left:12px;background:#fff;color:#6f20b5;border-radius:999px;padding:6px 10px;font-size:10px;font-weight:900;letter-spacing:.08em}.info{padding:15px}.info h3{font-size:15px;margin:0 0 7px}.info p{font-size:12px;color:var(--muted);margin:0 0 13px}.price-row{display:flex;align-items:center;justify-content:space-between}.price{font-weight:900}.add{border:0;background:#171021;color:#fff;border-radius:999px;padding:9px 12px;font-size:12px;font-weight:800;cursor:pointer}.add:disabled{opacity:.45;cursor:not-allowed}.notice{max-width:1116px;margin:0 auto 56px;padding:18px 20px;border:1px solid #e6d8fa;background:#f3eaff;border-radius:16px;color:#4b286d;font-size:13px;line-height:1.6}.footer{background:#100b1c;color:#fff;padding:32px 22px}.footer-inner{max-width:1160px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}.footer small{color:#b8adc8}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#171021;color:#fff;padding:12px 18px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.2s}.toast.show{opacity:1}@media(max-width:760px){.links{display:none}.hero-inner{grid-template-columns:1fr;text-align:center;padding-top:44px}.hero p{margin-inline:auto}.crest{width:210px;grid-row:1}.hero-copy{grid-row:2}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.section{padding:42px 16px}.section-head{align-items:start;flex-direction:column}.footer-inner{flex-direction:column;text-align:center}.nav{padding:14px 16px}}
-</style></head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1081cc">
+  <meta name="description" content="DEAR STORE - Telefon aksesuarlarını ve tarzını yansıtan mağaza">
+  <title>DEĞERLİ MAĞAZA - Telefonunuz, tarzınız</title>
+  <style>
+    :root {
+      --murekkep: #100b1c;
+      --mor: #871cff;
+      --pembe: #ed59d0;
+      --kagit: #faf8ff;
+      --sessiz: #766f83;
+      --satir: #ece7f3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--kagit);
+      color: var(--murekkep);
+    }
+
+    .ust {
+      background: var(--murekkep);
+      color: #ffffff;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--satir);
+    }
+
+    .marka {
+      text-decoration: none;
+      color: var(--murekkep);
+      font-weight: bold;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .marka img {
+      height: 32px;
+      width: auto;
+      border-radius: 6px;
+    }
+
+    .baglantilar a {
+      text-decoration: none;
+      color: var(--murekkep);
+      margin-left: 14px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .kahraman {
+      padding: 36px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #f3e8ff, #fce7f3);
+    }
+
+    .kahraman h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+    }
+
+    .kahraman p {
+      margin: 0;
+      color: var(--sessiz);
+    }
+
+    .bolum {
+      padding: 28px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .bolum-basligi h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .bolum-basligi p {
+      margin: 0 0 20px;
+      color: var(--sessiz);
+    }
+
+    .izgara {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .urun {
+      background: #ffffff;
+      border: 1px solid var(--satir);
+      border-radius: 14px;
+      overflow: hidden;
+      padding: 14px;
+    }
+
+    .gorsel {
+      height: 150px;
+      border-radius: 10px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    .etiket {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--murekkep);
+      font-size: 11px;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .urun h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+
+    .urun p {
+      margin: 0;
+      color: var(--sessiz);
+      font-size: 14px;
+    }
+
+    .bildirim {
+      max-width: 1000px;
+      margin: 0 auto 24px;
+      padding: 16px 20px;
+      background: #ffffff;
+      border-left: 4px solid var(--mor);
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .altbilgi {
+      background: var(--murekkep);
+      color: #ffffff;
+      padding: 24px 20px;
+      text-align: center;
+    }
+  </style>
+</head>
 <body>
-<div class="top">DEAR STORE · TARZINI TELEFONUNA YANSIT</div>
-<header class="nav"><a class="brand" href="#home">DEAR<span> STORE.</span></a><nav class="links"><a href="#urunler">Ürünler</a><a href="#hakkimizda">Hakkımızda</a></nav><div class="cart" aria-label="Sepet">Sepet <span id="count">0</span></div></header>
-<main id="home">
-<section class="hero"><div class="hero-inner"><div class="hero-copy"><div class="eyebrow">YOUR PHONE, YOUR STYLE</div><h1>Küçük detaylar,<br><em>büyük tarz.</em></h1><p>Telefonuna kendi dokunuşunu kat. Renkli kılıflar, eğlenceli askılar ve günlük aksesuarlar DEAR STORE'da.</p><a class="cta" href="#urunler">Koleksiyonu keşfet&nbsp; →</a></div><img class="crest" src="assets/dear-store-logo.png" alt="DEAR STORE 2026 kalkan logosu"></div></section>
-<section class="section" id="urunler"><div class="section-head"><div><h2>Öne çıkan ürünler</h2><p>İlk koleksiyonumuzdan örnekler</p></div><span class="eyebrow" style="color:#8624d8">DEAR PICKS ✦</span></div>
-<div class="grid">
-<article class="product"><div class="visual"><span class="tag">KILIF</span><b>📱</b></div><div class="info"><h3>Renkli telefon kılıfı</h3><p>Tarzına uygun renk seçenekleri</p><div class="price-row"><span class="price">Fiyat eklenecek</span><button class="add" disabled>Yakında</button></div></div></article>
-<article class="product"><div class="visual" style="background:linear-gradient(145deg,#ffe7f5,#f3e6ff)"><span class="tag">ASKI</span><b>📿</b></div><div class="info"><h3>Boncuklu telefon askısı</h3><p>Renkli ve eğlenceli detay</p><div class="price-row"><span class="price">Fiyat eklenecek</span><button class="add" disabled>Yakında</button></div></div></article>
-<article class="product"><div class="visual" style="background:linear-gradient(145deg,#e6f4ff,#eee7ff)"><span class="tag">TUTUCU</span><b>🟣</b></div><div class="info"><h3>Telefon tutucu</h3><p>Günlük kullanım için pratik</p><div class="price-row"><span class="price">Fiyat eklenecek</span><button class="add" disabled>Yakında</button></div></div></article>
-<article class="product"><div class="visual" style="background:linear-gradient(145deg,#fff0dc,#ffe5f1)"><span class="tag">KABLO</span><b>🔌</b></div><div class="info"><h3>Şarj kablosu</h3><p>Uyumlu modeller daha sonra eklenecek</p><div class="price-row"><span class="price">Fiyat eklenecek</span><button class="add" disabled>Yakında</button></div></div></article>
-</div></section>
-<section class="notice" id="hakkimizda"><strong>Mağaza hazırlık aşamasında.</strong> Bu sayfa şu an DEAR STORE'un tasarım önizlemesidir. Ürünler, gerçek fiyatlar, stok ve teslimat bilgileri doğrulanmadan sipariş veya ödeme alınmaz.</section>
-</main>
-<footer class="footer"><div class="footer-inner"><div class="brand">DEAR<span style="color:#b45cff"> STORE.</span></div><small>© 2026 DEAR STORE · Your phone, your style.</small></div></footer><div class="toast" id="toast">Sepet özelliği satış açıldığında etkinleştirilecek.</div>
-<script>document.querySelectorAll('a[href="#urunler"]').forEach(a=>a.addEventListener('click',()=>{}));</script>
-</body></html>
+  <div class="ust">DEĞERLİ MAĞAZA - TARZINI TELEFONUNA YANSIT</div>
+
+  <header class="nav">
+    <a class="marka" href="#anasayfa">
+      <img src="dear-store-logo.png" alt="DEAR STORE Logo" onerror="this.style.display='none'">
+      <span>DEĞERLİ MAĞAZA</span>
+    </a>
+    <nav class="baglantilar">
+      <a href="#anasayfa">Ana Sayfa</a>
+      <a href="#urunler">Ürünler</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+    </nav>
+  </header>
+
+  <main id="anasayfa">
+    <section class="kahraman">
+      <h1>TELEFONUNUZ, TARZINIZ</h1>
+      <p>Özenle seçilmiş telefon aksesuarları ve günlük kullanım ürünleri.</p>
+    </section>
+
+    <section class="bolum" id="urunler">
+      <div class="bolum-basligi">
+        <h2>Öne çıkan ürünler</h2>
+        <p>İlk koleksiyonumuzdan örnek parçalar.</p>
+      </div>
+
+      <div class="izgara">
+        <article class="urun">
+          <div class="gorsel" style="background: linear-gradient(145deg, #ffe7f5, #f3e8ff);">
+            <span class="etiket">KILIF</span>
+          </div>
+          <h3>Şık Telefon Kılıfı</h3>
+          <p>Günlük koruma ve modern görünüm sunan kılıf modeli.</p>
+        </article>
+
+        <article class="urun">
+          <div class="gorsel" style="background: linear-gradient(145deg, #e0f2fe, #ede9fe);">
+            <span class="etiket">ASKI</span>
+          </div>
+          <h3>Telefon Askısı</h3>
+          <p>Eller serbest taşıma ve pratik kullanım için askı.</p>
+        </article>
+
+        <article class="urun">
+          <div class="gorsel" style="background: linear-gradient(145deg, #fef3c7, #fce7f3);">
+            <span class="etiket">TUTUCU</span>
+          </div>
+          <h3>Masa / Stand Tutucu</h3>
+          <p>Video izleme ve masaüstü kullanım için rahat tutucu.</p>
+        </article>
+
+        <article class="urun">
+          <div class="gorsel" style="background: linear-gradient(145deg, #dcfce7, #e0f2fe);">
+            <span class="etiket">KABLO</span>
+          </div>
+          <h3>Şarj &amp; Bağlantı</h3>
+          <p>Günlük şarj ihtiyaçları için dayanıklı aksesuar.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="bildirim" id="hakkimizda">
+      <strong>Mağaza hazırlık aşamasında:</strong> Bu sayfa şu an DEAR STORE'un ilk sürümüdür.
+    </div>
+  </main>
+
+  <footer class="altbilgi">
+    <div class="altbilgi-ic">
+      <span class="marka" style="color: #ffffff;">DEĞERLİ MAĞAZA</span>
+      <p style="margin: 8px 0 0; font-size: 13px; opacity: 0.8;">© 2026 DEAR STORE. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', () => {});
+    });
+  </script>
+</body>
+  </html>
+  
